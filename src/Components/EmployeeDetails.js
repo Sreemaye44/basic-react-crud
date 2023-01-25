@@ -6,6 +6,7 @@ import userEvent from '@testing-library/user-event';
 const EmployeeDetails = () => {
     const employee = useLoaderData();
     console.log(employee);
+   
     const handleSubmit = (event) => {
         event.preventDefault();
         const form=event.target;

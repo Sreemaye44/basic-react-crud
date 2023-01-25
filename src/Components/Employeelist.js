@@ -6,13 +6,30 @@ import { Link } from 'react-router-dom';
 const Employeelist = () => {
 
     const [employee, setEmployee] = useState('');
+    const [isBlocked, setIsBlocked] = useState(false);
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(data => {
              const employeeLoaded=data.data;
              setEmployee(employeeLoaded);
      });
-    },[])
+    }, [])
+    const handleBlock = (id) => {
+        axios.put(`https://jsonplaceholder.typicode.com/users/${id}`)
+        .then(res => {
+            console.log(res);
+            setIsBlocked(!isBlocked);
+        })
+        
+    };
+    const handleDelete = (id) => {
+        axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+        .then(res => {
+            console.log(res);
+            alert('deleted successfully')
+           
+        })
+    }
     return (
         <div>
         <h2 className='text-3xl text-center m-5'>Employee List</h2>
@@ -34,8 +51,9 @@ const Employeelist = () => {
                                 <td>{singleEmployee.name}</td>
                                 <td><Link to={`/singleEmployee/${singleEmployee.id}`}>
                                         <button className='btn btn-sm btn-warning'>Details</button></Link></td>
-                                <td><button className='btn btn-sm btn-primary'>Block</button></td>
-                                <td><button className='btn btn-sm btn-error'>Delete</button></td>
+                                    <td><button className='btn btn-sm btn-primary' onClick={()=>handleBlock(singleEmployee.id)}>
+      {isBlocked ? 'Unblock' : 'Block'}</button></td>
+                                    <td><button onClick={()=>handleDelete(singleEmployee.id) } className='btn btn-sm btn-error'>Delete</button></td>
                             </tr>)
                         }
  
