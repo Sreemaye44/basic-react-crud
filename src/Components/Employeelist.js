@@ -4,14 +4,12 @@ import { handler } from 'daisyui';
 import { Link } from 'react-router-dom';
 
 const Employeelist = () => {
-    const handleDetail = (id) => {
-        console.log('hello')
-    }
+
     const [employee, setEmployee] = useState('');
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/users')
-        .then(data => {
-            const employeeLoaded=data.data;
+            .then(data => {
+             const employeeLoaded=data.data;
              setEmployee(employeeLoaded);
      });
     },[])
@@ -31,10 +29,11 @@ const Employeelist = () => {
 </thead>
 <tbody>
                         {  employee &&
-                            employee.map((singleEmployee,id) =>
+                            employee.map((singleEmployee) =>
                              <tr>
                                 <td>{singleEmployee.name}</td>
-                                <td><Link to={`/singleEmployee/${id}`}><button className='btn btn-sm btn-warning'>Details</button></Link></td>
+                                <td><Link to={`/singleEmployee/${singleEmployee.id}`}>
+                                        <button className='btn btn-sm btn-warning'>Details</button></Link></td>
                                 <td><button className='btn btn-sm btn-primary'>Block</button></td>
                                 <td><button className='btn btn-sm btn-error'>Delete</button></td>
                             </tr>)
