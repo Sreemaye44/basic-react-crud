@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 
 
 const CreateEmployee = () => {
-    const [employee, setEmployee] = useState('')
     const handleAddService = async(event) => {
         event.preventDefault();
         const form=event.target;
