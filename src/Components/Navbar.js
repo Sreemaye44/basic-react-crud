@@ -13,7 +13,7 @@ const Navbar = () => {
               
         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li className='hover-bordered hover:text-pink-600 mx-5'><Link to='/'>Create Employee</Link></li>
-      <li className='hover-bordered hover:text-pink-600 mx-5'><Link to='/'>Employee List</Link></li>
+      <li className='hover-bordered hover:text-pink-600 mx-5'><Link to='/list'>Employee List</Link></li>
         
    
           <li tabIndex={0}>
@@ -27,7 +27,7 @@ const Navbar = () => {
     <div className="navbar-center hidden lg:flex">
       <ul className="menu  menu-horizontal">
       <li className='hover-bordered hover:text-pink-600 mx-5'><Link to='/'>Create Employee</Link></li>
-      <li className='hover-bordered hover:text-pink-600 mx-5'><Link to='/'>Employee List</Link></li>
+      <li className='hover-bordered hover:text-pink-600 mx-5'><Link to='/list'>Employee List</Link></li>
 
             </ul>
             
