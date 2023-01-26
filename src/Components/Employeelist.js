@@ -19,7 +19,11 @@ const Employeelist = () => {
         .then(res => {
             console.log(res);
             setIsBlocked(!isBlocked);
+
         })
+        .catch((error) => {
+            console.log(error);
+    })
         
     };
     const handleDelete = (id) => {
@@ -29,6 +33,9 @@ const Employeelist = () => {
             alert('deleted successfully')
            
         })
+        .catch((error) => {
+            console.log(error);
+    })
     }
     return (
         <div>
